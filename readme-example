@@ -1,0 +1,70 @@
+**Quick Configuration**
+
+Fresh Installation
+Change storage and cache directory permissions.
+    sudo chgrp -R www-data storage bootstrap/cache
+    sudo chmod -R ug+rwx storage bootstrap/cache
+Clone .env.example file to .env and update configuration.
+
+Make sure to configure the following
+
+Redis Instance
+GeoIP Database Path
+API Base Path with trailing slash.
+Generate Application Key.
+
+    php artisan key:generate
+Link Storage.
+    php artisan storage:link
+Install Composer Plugins
+    composer install
+Install Node Modules
+    npm install
+Initiate Webpack Compilation
+For Development and Testing Environment
+
+    npm run dev
+For Production Environment
+    npm run prod
+Updates Only
+Check .env.example file for changes & update the same in .env.
+
+Make sure to configure the following
+
+Redis Instance
+GeoIP Database Path
+API Base Path with trailing slash.
+Install Composer Plugins
+
+    composer install
+Install Node Modules
+    npm install
+
+Initiate Webpack Compilation
+For Development and Testing Environment
+
+    npm run dev
+
+For Production Environment
+    npm run prod
+Other Configurations
+Client Side Route Support
+
+Run command below to compile the latest routes to be used in client side.
+    php artisan route:seed
+
+Master Data Support
+
+Run command below to prefetch the common master data using API to be used in client side.
+    php artisan master:seed
+
+Translations
+Clone all files from the default language directory resources/lang/en to the new language directory as required.
+Update keys in the corresponding language files under path resources/lang/{locale} with associated values in that locale.
+Run command below to compile the translation updates.
+    php artisan lang:seed
+Deployment Support
+
+Run command below to configure and compile scripts for deployment
+    php artisan deploy (For Development & Testing Environment)
+    php artisan deploy --prod (For Production Environment)
